@@ -39,6 +39,15 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
             .usernameParameter("name")
             .passwordParameter("pass")
             .permitAll()
+
+            // 注销登录
+            .and()
+            .logout()
+            .logoutUrl("/logout")
+            .invalidateHttpSession(true)
+            .clearAuthentication(true)
+            .logoutSuccessUrl("/login.html")
+
             .and()
             .csrf().disable();
     }
