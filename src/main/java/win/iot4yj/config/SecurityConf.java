@@ -33,7 +33,8 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
             // 指定登陆页面
             .loginPage("/login.html")
             .loginProcessingUrl("/doLogin")
-            .defaultSuccessUrl("/index")
+//            .defaultSuccessUrl("/index")
+            .successHandler(new MyAuthenticationSuccessHandler())
             .failureUrl("/login.html")
             .usernameParameter("name")
             .passwordParameter("pass")
